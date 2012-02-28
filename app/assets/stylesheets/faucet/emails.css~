@@ -64,7 +64,7 @@
 
 .email_template {
   width: 450px;
-  min-height: 400px;
+  height: min-400px;
   border: 1px solid black;
   display: none;
 }

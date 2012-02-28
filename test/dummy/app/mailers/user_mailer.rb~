@@ -10,6 +10,6 @@ class UserMailer < ActionMailer::Base
     puts "called"
     @greeting = "Hi"
 
-    mail :to => "to@example.org"
+    mail to: "to@example.org"
   end
 end

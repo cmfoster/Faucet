@@ -44,7 +44,7 @@
 	<% end %>
 </div>
 <div class="column-farright">
-  <ul id="nav">
+  <ul class="nav">
     <% for template in @templates %>
       <li><%= link_to template[0].titleize,'#',:id => "#{template[0][1]}", :remote => true %></li>
     <% end %>

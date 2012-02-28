@@ -16,7 +16,7 @@ module Faucet
     emails = Email.group('function')
     emails.each do |mail|
       a = mail.function.split('.')
-      templates << [a[0].split(/([[:upper:]][[:lower:]]*)/).delete_if(&:empty?).join('_') + '/' + a[1].  split(/([[:upper:]][[:lower:]]*)/).delete_if(&:empty?).join('_'), [a[0].size + a[1].size + rand(1024)]]
+      templates << a[0].split(/([[:upper:]][[:lower:]]*)/).delete_if(&:empty?).join('_') + '/' + a[1].  split(/([[:upper:]][[:lower:]]*)/).delete_if(&:empty?).join('_'), [a[0].size + a[1].size + rand(1024)]
     end
     return templates
   end
