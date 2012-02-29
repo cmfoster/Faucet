@@ -5,6 +5,7 @@ module Faucet
       @emails_sent_yesterday = Email.where(:sent => true, :time => Faucet.yesterday)
       @sent_emails = Email.where(:sent => true)
       @unsent_emails = Email.where(:sent => false)
+      @templates = []
       @templates = Faucet.templates
     end
     

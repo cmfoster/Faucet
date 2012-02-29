@@ -40,13 +40,13 @@
 	</div>
 
 	<% for template in @templates %>
-	  <div id="<%= template[0][1]%>" class="email_template "><%= render :template => "#{template[0].downcase}.html.erb"%></div>
+	  <div id="<%= template[1]%>" class="email_template "><%= render :template => "#{template[0]}"%></div>
 	<% end %>
 </div>
 <div class="column-farright">
-  <ul class="nav">
+  <ul id="nav">
     <% for template in @templates %>
-      <li><%= link_to template[0].titleize,'#',:id => "#{template[0][1]}", :remote => true %></li>
+      <li><%= link_to template,'#',:id => "#{template[1]}", :remote => true %></li>
     <% end %>
   </ul>
 </div>
@@ -55,7 +55,13 @@
 <script>
 $('#nav>li>a').click(function(){
   var divId = $(this).attr('id');
-  $('div.emails').hide('fast');
-  $("#"+divId).show('slow');
+  $('div.emails>ul').hide('fast');
+  $('div.emails>div:not(:first)').fadeOut('fast');
+  $('div.emails>div:first').animate({
+    width: 435
+  }, 700, function(){
+    $("#"+divId).fadeIn(1000);
+    $(this).html("Template Preview");
+  });
 });
 </script>
